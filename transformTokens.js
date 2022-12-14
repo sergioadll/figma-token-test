@@ -1,4 +1,5 @@
 import StyleDictionary from "style-dictionary";
+const baseConfig = require("./config.json");
 
 StyleDictionary.registerTransform({
   name: "size/px",
@@ -56,4 +57,6 @@ StyleDictionary.registerFilter({
   },
 });
 
-StyleDictionary.buildAllPlatforms();
+const StyleDictionaryExtended = StyleDictionary.extend(baseConfig);
+
+StyleDictionaryExtended.buildAllPlatforms();

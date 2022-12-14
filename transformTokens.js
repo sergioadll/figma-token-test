@@ -1,5 +1,25 @@
 import StyleDictionary from "style-dictionary";
-import * as baseConfig from "./config.json";
+
+const config = {
+  source: ["tokens/*.json"],
+  platforms: {
+    css: {
+      transformGroup: "custom/css",
+      buildPath: "build/css/",
+      files: [
+        {
+          destination: "_variables.css",
+          format: "css/variables",
+          filter: "validToken",
+          options: {
+            showFileHeader: false,
+          },
+        },
+      ],
+    },
+  },
+};
+const baseConfig = JSON.stringify(config);
 
 StyleDictionary.registerTransform({
   name: "size/px",
